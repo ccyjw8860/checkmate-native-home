@@ -1,6 +1,8 @@
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import Auth from "../navigation/Auth";
 import { logIn, logOut } from "../redux/usersSlice";
 
 export default () => {
@@ -8,16 +10,14 @@ export default () => {
   const dispatch = useDispatch();
 
   return (
-    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+    <NavigationContainer>
       {isLoggedIn ? (
         <TouchableOpacity onPress={() => dispatch(logOut())}>
           <Text>Logout</Text>
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity onPress={() => dispatch(logIn("kimchi"))}>
-          <Text>Login</Text>
-        </TouchableOpacity>
+        <Auth />
       )}
-    </View>
+    </NavigationContainer>
   );
 };
