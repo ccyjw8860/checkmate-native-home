@@ -7,8 +7,15 @@ const KakaoLoginUrl = "https://1169dd7bac6c.ngrok.io/api/v1/users/login/kakao";
 
 const Conatainer = styled.View`
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
+`;
+
+const SubContainer = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: center;
 `;
 
 const Image = styled.Image`
@@ -17,27 +24,20 @@ const Image = styled.Image`
   border-radius: 10px;
 `;
 
-// export default ({ navigation }) => (
-//   <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-//     <Text>Welcome</Text>
-//     <Button
-//       onPress={() => navigation.navigate("Continue")}
-//       title={"Continue"}
-//     >
-//       <Image/>
-//     </Button>
-//   </View>
-// );
+const Messeage = styled.Text``;
 
 export default ({ navigation }) => {
+  console.log(navigation);
   return (
     <Conatainer>
-      <TouchableOpacity onPress={() => Linking.openURL(KakaoLoginUrl)}>
-        <Image source={require("../assets/kakao_login.png")} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => Linking.openURL(KakaoLoginUrl)}>
-        <Image source={require("../assets/kakao_login.png")} />
-      </TouchableOpacity>
+      <SubContainer>
+        <Messeage>Welcome</Messeage>
+      </SubContainer>
+      <SubContainer>
+        <TouchableOpacity onPress={() => Linking.openURL(KakaoLoginUrl)}>
+          <Image source={require("../assets/kakao_login.png")} />
+        </TouchableOpacity>
+      </SubContainer>
     </Conatainer>
   );
 };
