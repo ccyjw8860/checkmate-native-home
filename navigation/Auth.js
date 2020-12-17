@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import KakaoLogin from "../screens/KakaoLogin";
 import Welcome from "../screens/Welcome";
 import Continue from "../screens/Continue";
 import Logout from "../screens/Logout";
@@ -15,6 +16,7 @@ export default () => (
       headerBackImage: BackBtn,
     }}
   >
+    <Auth.Screen name="KakaoLogin" component={KakaoLogin} />
     <Auth.Screen name="Welcome" component={Welcome} />
     <Auth.Screen name="Continue" component={Continue} />
     <Auth.Screen name="Logout" component={Logout} />
